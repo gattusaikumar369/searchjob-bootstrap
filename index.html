@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=width-device, initial-scale=1.0">
+        <link rel="stylesheet" href="index.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+       <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    </head>
+    <body>
+        <div class="main-cnt">
+             <nav class="navbar">
+                <div class="left-nav-cnt">
+                  <div class="logo">
+                    <a href="">
+                      <img
+                        src="https://workisy.com/uploaded-images/logo/pnyd1i5u2KOpKGk5XcajI6MShDnWHVkzU9PND19N.png"
+                        alt="Workisy Logo"
+                        class="nav-logo"
+                      />
+                    </a>
+                  </div>
+                  <ul class="nav-links-list">
+                    <li ><a href="#" class="nav-list-item" style="color:#212529; text-decoration:none; ">Post a job</a></li>
+                    <li class="nav-list-item">
+                        <div class="dropdown ">
+                            <button class="btn  dropdown-toggle dropdown-boot-div" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                              Candidate Database
+                            </button>
+                            <ul class="dropdown-menu drop-ul-cnt">
+                              <li><a class="dropdown-item active" href="#">Search Candidate</a></li>
+                              <li><a class="dropdown-item" href="#">Saved Candidates</a></li>
+                              <li><a class="dropdown-item" href="#">Unlocked candidates</a></li> 
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-list-item" >
+                      <div class="dropdown ">
+                        <button class="btn  dropdown-toggle dropdown-boot-div" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Report
+                        </button>
+                        <ul class="dropdown-menu drop-ul-cnt">
+                          <li ><a class="dropdown-item active" href="#">Resdox Report</a></li>
+                          <li><a class="dropdown-item" href="#">Job Report</a></li>
+                         
+                        </ul>
+                    </div>
+                    </li>
+                  </ul>
+                </div>
+                <div class="dropdown">
+                  <button style="background-color: #e5e7e7; border: none;" class="btn btn-secondary dropdown-toggle d-flex align-items-center circle" type="button" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                    <div class="profile-circle me-2" style="background-color: #e5e7e7; color: #212529;">GS</div>
+                  </button>
+                  <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
+                      <li  class="nav-list-item"><a class="dropdown-item" href="#">Credits</a></li>
+                      <li  class="nav-list-item"><a class="dropdown-item" href="#">Usage</a></li>
+                     
+                      <li  class="nav-list-item"><a class="dropdown-item" href="#">Billing</a></li>
+                      <li  class="nav-list-item"><a class="dropdown-item" href="#">Plans & Pricing</a></li>
+                      <li  class="nav-list-item"><a class="dropdown-item" href="#">Logout</a></li>
+                  </ul>
+              </div>
+            </nav>
+        
+            <div class="search-form-app-cnt">
+             <form class="search-form-cnt">
+                <div class="exper-cnt">
+                    <h1 class="heading">Searching for</h1>
+                    <div class="search-checkbox-input-cnt">
+                        <div class="input-label-cnt">
+                            <input type="checkbox" id="checkbox" class="checkbox-inp" />
+                            <label class="checkbox-name" htmlFor="checkbox">Freshers only</label>
+                        </div>
+                        <div class="input-label-cnt">
+                            <input type="checkbox" id="checkbox" class="checkbox-inp" />
+                            <label class="checkbox-name" htmlFor="checkbox">Experienced only</label>
+                        </div>
+                        <div class="input-label-cnt">
+                            <input type="checkbox" id="checkbox" class="checkbox-inp" />
+                            <label class="checkbox-name" htmlFor="checkbox">Any</label>
+                        </div>
+                    </div>
+                </div>
+                <hr class="hr-line"/>
+    
+                
+                <div class="exper-cnt">
+                    <h1 class="heading">Keywords</h1> 
+                    <div id="keywords-container" class="w-100">
+                        <select class="input " id="keywordid"></select>
+                    </div> 
+                </div>
+                
+    
+                <div class="exper-cnt">
+                    <h1 class="heading">Current city</h1> 
+                    <input type="search" class="input" placeholder="Type to search city"/> 
+                </div>
+    
+                <div class="exper-cnt">
+                    <h1 class="heading">Experience</h1> 
+                    <div class="exp-select-cnt">
+                        <select id="minExperience" class="select-input"></select>
+                        <select id="maxExperience" class="select-input"></select>
+                    </div>
+                </div>
+    
+                <div class="exper-cnt">
+                    <h1 class="heading">Annual Salary</h1> 
+                    <div class="exp-select-cnt">
+                        <select id="minSalary" class="select-input"></select>
+                        <select id="maxSalary" class="select-input"></select>
+                    </div>
+                </div>
+    
+                <div class="exper-cnt">
+                    <h1 class="heading" style="margin-left: 10px;">Minimum Education</h1>
+                    <ul id="educationList" class="edu-list-cnt">
+                        <li class=list-item>
+                            <p class="edu-para">12th pass</p>
+                            <div class="icons-cnt" style="cursor: pointer; display: flex; align-items: center;"   >   
+                                <i class="fa-solid fa-xmark" style="font-size: 20px; color: #656eec; margin-right: 5px;"></i>
+                                 <FontAwesomeIcon icon={faPlus} style=" font-size: '20px'; color: '#494646';  margin-right:'5px';"/>
+                                 <FontAwesomeIcon icon={faXmark} style=" font-size: '20px'; color: #656eec; margin-right:5px ;"/>
+                            </div>
+                        </li>
+                    </ul> <!-- Education list will be dynamically created -->
+                </div>
+    
+                <hr class="hr-line"/>
+                <div class="bottom-cnt">
+                    <div class="active-cnt">
+                        <label class="activein-para">Active in</label>
+                        <select class="select-active" id="activeDays">
+                            <option value="">1 day</option>
+                            <option value="">1 week</option>
+                            <option value="">2 week</option>
+                            <option value="">1 month</option>
+                            <option value="">2 months</option>
+                            <option value="">3 months</option>
+                            <option value="">6 months</option>
+                        </select>
+                    </div>
+                    
+                    <div class="search-candi-cnt">
+                        <button class="reset-btn">Reset</button>
+                        <button class="reset-btn ml-2">Search Candidate</button>
+                    </div>
+                </div>
+             </form>
+            </div>
+        </div>
+    
+    </body>
+    <script src="index.js"></script>
+</html>
