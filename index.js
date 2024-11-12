@@ -74,13 +74,13 @@ const keywords = [
     {value: "React", label: "react.js"}
 ];
 
-const educationLevels = [
-    { id: 1, level: "10th pass" },
-    { id: 2, level: "12th pass" },
-    { id: 3, level: "Diploma" },
-    { id: 4, level: "Graduate" },
-    { id: 5, level: "Post Graduate" }
-  ];
+// const educationLevels = [
+//     { id: 1, level: "10th pass" },
+//     { id: 2, level: "12th pass" },
+//     { id: 3, level: "Diploma" },
+//     { id: 4, level: "Graduate" },
+//     { id: 5, level: "Post Graduate" }
+//   ];
 const minEXp=document.getElementById("minExperience")
 const maxEXp=document.getElementById("maxExperience")
 const minSalary=document.getElementById("minSalary")
@@ -115,53 +115,48 @@ salary.forEach(salary=>{
     maxSalary.appendChild(option)
 })
 
-keywords.forEach(word=>{
-    const option=document.createElement("option")
-    option.value=word.label
-    option.textContent=word.value
-    keywordId.appendChild(option)
-})
+// keywords.forEach(word=>{
+//     const option=document.createElement("option")
+//     option.value=word.label
+//     option.textContent=word.value
+//     keywordId.appendChild(option)
+// })
 
-function renderEducationList() {
-    educationList.innerHTML = ''; // Clear the list
-    
-    educationLevels.forEach((item) => {
-      const listItem = document.createElement("li");
-      listItem.className = "list-item";
+const skillInput = document.getElementById("skills");
+const skillCont = document.getElementById("skills-cnt");
 
-      // Education level text
-      const eduPara = document.createElement("p");
-      eduPara.className = "edu-para";
-      eduPara.textContent = item.level;
+skillInput.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+        event.preventDefault();
 
-      // Icons container with click event
-      const iconsCnt = document.createElement("div");
-      iconsCnt.className = "icons-cnt";
-      iconsCnt.innerHTML = `
-        <i class="fa-solid fa-plus" style="font-size: 20px; color: #494646"; margin-right: 5px;"></i>
-      `;
+        const skillValue = skillInput.value.trim();
+        if (skillValue) {
+            // Create a new list item for the skill
+            const skillItem = document.createElement("li");
+            skillItem.textContent = skillValue;
+            skillItem.classList.add("skill-holder-item");
 
-      // Toggle between plus and x icon on click
-      iconsCnt.addEventListener("click", () => {
-        const icon = iconsCnt.querySelector("i");
-        if (icon.classList.contains("fa-plus")) {
-          icon.classList.replace("fa-plus", "fa-xmark");
-          icon.style.color = "#656eec";
-          listItem.classList.add("click-edu")
+            // Create the close button (X)
+            const closeButton = document.createElement("span");
+            closeButton.textContent = "X"; // You can use an 'X' symbol
+            closeButton.classList.add("close-btn");
 
-        } else {
-          icon.classList.replace("fa-xmark", "fa-plus");
-          icon.style.color = "#494646" ;
-          listItem.classList.remove("click-edu")
+            // Append the close button to the skill item
+            skillItem.appendChild(closeButton);
+
+            // Append the skill item to the container
+            skillCont.appendChild(skillItem);
+
+            // Clear the input field after adding the skill
+            skillInput.value = ""; 
+
+            // Add event listener to the close button to remove the item when clicked
+            closeButton.addEventListener("click", () => {
+                skillCont.removeChild(skillItem);
+                console.log(`Skill removed: ${skillValue}`); // Check if this logs
+            });
+
+            console.log(`Skill added: ${skillValue}`); // Check if this logs
         }
-      });
-
-      // Append elements
-      listItem.appendChild(eduPara);
-      listItem.appendChild(iconsCnt);
-      educationList.appendChild(listItem);
-    });
-  }
-
-  // Initial render
-  renderEducationList();
+    }
+});
